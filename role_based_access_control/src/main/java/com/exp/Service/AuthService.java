@@ -1,0 +1,40 @@
+package com.exp.Service;
+
+import com.exp.Dao.UserRepository;
+import com.exp.Dto.LoginRequest;
+import com.exp.Dto.RegisterRequest;
+import com.exp.UserEntity.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
+@Service
+public class AuthService {
+
+
+    @Autowired
+    private PasswordEncoder encoder;
+
+
+    @Autowired
+    private UserRepository userRepository;
+
+    private BCryptPasswordEncoder encoder1 = new BCryptPasswordEncoder();
+
+
+    public void register(RegisterRequest registerRequest) {
+
+        User user = new User();
+        user.setName(registerRequest.name());
+        user.setEmail(registerRequest.email);
+        user.setPassword(registerRequest.password);
+        user.setrole(registerRequest.role);
+
+    }
+
+    public void login(LoginRequest loginRequest) {
+    }
+}
+
+
