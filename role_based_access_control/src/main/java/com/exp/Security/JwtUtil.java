@@ -11,7 +11,7 @@ import java.util.Date;
 
 public class JwtUtil {
 
-        private String SECRET = "mysecretkey";
+        private String SECRET = "mysecretkeymysecretkeymysecretkey";
         public String generateToken(String email, String role) {
 
             return Jwts.builder()

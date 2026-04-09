@@ -11,12 +11,7 @@ public class RegisterRequest {
     public  String password ;
     public  String role ;
 
-    public void save(User user) {
-        return ;
-    }
 
-    public String name() {
-        return null;
-    }
+
 
 }

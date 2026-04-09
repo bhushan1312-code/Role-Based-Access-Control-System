@@ -1,40 +1,29 @@
 package com.exp.Controller;
 
-
 import com.exp.Dto.LoginRequest;
 import com.exp.Dto.RegisterRequest;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import com.exp.Service.AuthService;
-import com.exp.UserEntity.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/login")
+@RequestMapping("/api/auth")
 public class AuthController {
-
-    @Autowired
-    private PasswordEncoder encoder;
 
     @Autowired
     private AuthService service;
 
     @PostMapping("/register")
-    public String register(@RequestBody RegisterRequest registerRequest) {
+    public ResponseEntity<String> register(@RequestBody RegisterRequest registerRequest) {
         service.register(registerRequest);
-        return "User Registered";
+        return ResponseEntity.ok("User Registered Successfully");
     }
+
 
     @PostMapping("/login")
-    public String login(@RequestBody LoginRequest  loginRequest) {
-        service.login(loginRequest);
-        return "User Login";
+    public ResponseEntity<String> login(@RequestBody LoginRequest loginRequest) {
+        String token = service.login(loginRequest);
+        return ResponseEntity.ok(token);
     }
-
-
-
-
 }

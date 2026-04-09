@@ -8,8 +8,6 @@ public class RoleBasedAccessControlApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(RoleBasedAccessControlApplication.class, args);
-
-
     }
 
 }

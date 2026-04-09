@@ -26,10 +26,4 @@ public class User {
     private String role; // USE
     // R / ADMIN
 
-    public void setEmail(String email) {
-    }
-
-    public void setrole(String role) {
-
-    }
 }
